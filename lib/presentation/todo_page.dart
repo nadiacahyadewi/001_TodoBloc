@@ -69,8 +69,8 @@ class TodoPage extends StatelessWidget {
                           labelText: 'Todo',
                           border: OutlineInputBorder(),
                         ),
-                        validator: (value){
-                          if  (value == null || value.isEmpty){
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
                             return 'Please enter a todo';
                           }
                           return null;
@@ -79,14 +79,14 @@ class TodoPage extends StatelessWidget {
                     ),
                     FilledButton(
                       onPressed: () {
-                        if (_key.currentState!.validate()){
+                        if (_key.currentState!.validate()) {
                           final selectedDate = context.read<TodoBloc>().state;
-                          if (selectedDate is TodoLoaded){
+                          if (selectedDate is TodoLoaded) {
                             context.read<TodoBloc>().add(
                               TodoEventAdd(
-                                title: _controller.text, 
+                                title: _controller.text,
                                 date: selectedDate.selectedDate!,
-                                ),
+                              ),
                             );
                             _controller.clear();
                             selectedDate.selectedDate = null;
@@ -98,7 +98,12 @@ class TodoPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 16.0)
+              SizedBox(height: 16.0),
+              Expanded(
+                child: BlocBuilder<TodoBloc, TodoState>(
+                  builder: (context, state) {},
+                ),
+              ),
             ],
           ),
         ),
