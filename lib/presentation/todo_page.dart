@@ -77,6 +77,15 @@ class TodoPage extends StatelessWidget {
                         },
                       ),
                     ),
+                    FilledButton(
+                      onPressed: () {
+                        if (_key.currentState!.validate()){
+                          final selectedDate = context.read<TodoBloc>().state;
+                          
+                        }
+                      },
+                      child: Text('Tambah'),
+                    ),
                   ],
                 ),
               ),
