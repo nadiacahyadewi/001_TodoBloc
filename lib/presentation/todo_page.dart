@@ -69,6 +69,12 @@ class TodoPage extends StatelessWidget {
                           labelText: 'Todo',
                           border: OutlineInputBorder(),
                         ),
+                        validator: (value){
+                          if  (value == null || value.isEmpty){
+                            return 'Please enter a todo';
+                          }
+                          return null;
+                        },
                       ),
                     ),
                   ],
